@@ -31,6 +31,8 @@ export default class Uploader extends React.Component {
     if (progress) {
       this.setState({
         progress: 0.1,
+        loaded: 0,
+        total: 0,
         error: false,
         aborted: false,
         complete: false,
@@ -41,7 +43,12 @@ export default class Uploader extends React.Component {
       request,
       files,
       instance: xhr => this.xhr = xhr,
-      progress: value => this.setState({ progress: value || 0.1 }),
+      progress: (value, loaded, total) =>
+        this.setState({
+          progress: value || 0.1,
+          loaded: loaded,
+          total: total || 0.1,
+        }),
     }).then(({ response, error, aborted, status }) => {
       if (error) {
         if (onError) {

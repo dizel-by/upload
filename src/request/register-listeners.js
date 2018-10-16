@@ -1,7 +1,11 @@
 export default ({ xhr, progress, resolve }) => {
   xhr.upload.addEventListener('progress', event => {
     if (!progress) return false;
-    progress(Math.round(event.loaded / event.total * 100));
+    progress(
+      Math.round(event.loaded / event.total * 100),
+      event.loaded,
+      event.total
+    );
   });
 
   xhr.addEventListener('load', () => {
