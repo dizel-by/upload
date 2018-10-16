@@ -4,7 +4,9 @@ import Request from './request';
 export default class Uploader extends React.Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      complete: false,
+    };
   }
 
   componentWillUnmount() {
