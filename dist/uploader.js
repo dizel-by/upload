@@ -95,7 +95,9 @@ var Uploader = (function(_React$Component) {
       (Uploader.__proto__ || Object.getPrototypeOf(Uploader)).call(this)
     );
 
-    _this.state = {};
+    _this.state = {
+      complete: false,
+    };
     return _this;
   }
 
