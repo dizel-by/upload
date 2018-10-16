@@ -123,6 +123,12 @@ var Uploader = (function(_React$Component) {
       },
     },
     {
+      key: 'stopUpload',
+      value: function stopUpload() {
+        this.xhr.abort();
+      },
+    },
+    {
       key: 'handleUpload',
       value: function handleUpload() {
         var _this2 = this;
@@ -209,6 +215,9 @@ var Uploader = (function(_React$Component) {
           _extends({}, this.state, {
             onFiles: function onFiles(files) {
               return _this3.handleFiles(files);
+            },
+            stopUpload: function stopUpload() {
+              return _this3.stopUpload();
             },
             startUpload: function startUpload() {
               return _this3.handleUpload();
